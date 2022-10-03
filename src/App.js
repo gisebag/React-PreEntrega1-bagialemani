@@ -1,7 +1,7 @@
 import React from "react"; //es por defecto, no es necesario colocar este codigo, pero tampoco esta mal dejarlo.
 import './App.css'
 import Navbar from "./Components/Navbar/Navbar";
-import { ItemListContainer } from "./Components/ItemListContainer";
+import { ItemListContainer } from "./Components/ListContainer/ItemListContainer";
 
 const App = () => {
   

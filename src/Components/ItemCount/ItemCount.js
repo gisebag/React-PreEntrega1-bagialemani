@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import './ItemCount.css'
 
 export const ItemCount = ({ stock, initial, onAdd }) => {
     const [count, setCount]= useState(initial);
@@ -23,14 +24,15 @@ export const ItemCount = ({ stock, initial, onAdd }) => {
     }
 
     return (
-        <div>
-            <button className='btn btn-primary' onClick={restar}>-</button>
-            <h2>{count}</h2>
-            <button className='btn btn-success' onClick={sumar}>+</button>
-                <button disabled={stock === 0} className='btn btn-outline-danger' onClick={carrito}>
+        <div className='cards'>
+            <button className='btn btn-primary btn1' onClick={restar}>-</button>
+            <p className='contador'>{count}</p>
+            <button className='btn btn-success btn1' onClick={sumar}>+</button>
+                
+                <button disabled={stock === 0} className='btn btn-outline-danger carrito' onClick={carrito}>
                     <span>{stock === 0 ? "Sin Stock" : "Agregar al Carrito"}</span>
                 </button>
-            <button disabled={stock === 0} className='btn btn-outline-warning' onClick={compra}>Comprar</button>
+                <button disabled={stock === 0} className='btn btn-outline-warning comprar' onClick={compra}>Comprar</button>
         </div>
     );
 };

@@ -1,5 +1,7 @@
 import React from 'react'
-import ItemCount from './ItemCount/ItemCount';
+import ItemCount from '../ItemCount/ItemCount';
+import './ItemListContainer.css'
+
 
 export const ItemListContainer = ({ greeting, mensaje}) => {
     
@@ -10,9 +12,12 @@ export const ItemListContainer = ({ greeting, mensaje}) => {
     
     return (
         <>
-            <h2>Ofertas del día</h2>
+            <div className='oferta'>
+                <h3>Ver ofertas del día <button className='btn click'>Click Aquí</button></h3>
+                
+            </div>
             <h3>{greeting}</h3>
-            <h4>{mensaje}</h4>
+            <h4 className='msj'>{mensaje}</h4>
             <ItemCount stock={10} initial={1} onAdd={onAdd}/>
 
         </>

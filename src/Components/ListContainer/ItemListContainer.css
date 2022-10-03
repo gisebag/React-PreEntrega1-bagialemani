@@ -1,0 +1,27 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: 0;
+}
+h3{
+    color:rgb(39, 39, 197);
+}
+
+.click{
+    background-color: orange;
+}
+
+.click:hover{
+    background-color: rgb(190, 190, 190);
+    color: orangered;
+    font-weight: bold;
+}
+.oferta{
+    text-align: center;
+    padding: 10px;
+}
+
+.msj{
+    color:orangered;
+}
+

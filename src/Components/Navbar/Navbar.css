@@ -18,24 +18,33 @@ img{
     margin: 0px 40px 0px 15px;
 }
 
-nav{
-    /* margin: 0 0 0 100px; */
+/* nav{
+    
     width: 45%;
-}
+} */
 ul{
     display: inline-flex;
     list-style-type:none;
 }
 
 li{
-    margin: 10px 10px;
+    margin: 0 5px;
     padding: 5px;
+    border-radius: 5px;
+    
 }
+
+li:hover{
+    box-shadow: 0px 3px 0 0 orange;
+    font-weight: bolder;
+}
+
 a{
     margin: 20px;
     text-decoration: none;
     color: rgb(39, 39, 197);
 }
+
 
 .titulo{
     
