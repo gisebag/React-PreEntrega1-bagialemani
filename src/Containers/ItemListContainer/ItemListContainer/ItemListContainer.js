@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import ItemList from '../ItemList/ItemList';
-import ClockLoader from "react-spinners/ClockLoader";
+/* import ClockLoader from "react-spinners/ClockLoader"; */
 import { useParams } from "react-router-dom";
 
-export const ItemListContainer = ({ greeting, mensaje }) => {
+const ItemListContainer = ({ greeting }) => {
 
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -19,7 +19,7 @@ export const ItemListContainer = ({ greeting, mensaje }) => {
             
             const getProducts = async () => {
                 try {
-                    const res = await fetch(URL_CATEGORIA);
+                    const res = await fetch(id ? URL_CATEGORIA : URL_BASE)             //id ? URL_CATEGORIA : URL_BASE
                     const data = await res.json();
                     setProducts(data);
                 } catch {
@@ -34,22 +34,12 @@ export const ItemListContainer = ({ greeting, mensaje }) => {
     }, [id]);
 
     console.log(useEffect);
-
     return (
         <>
-            
-
             <h3>{greeting}</h3>
-            <h4 className='msj'>{mensaje}</h4>
             <>
-                {loading ? 
-                    <ClockLoader
-                    color="#36d7b7"
-                    cssOverride={{}}
-                    loading
-                    size={75}
-                    speedMultiplier={2}
-                    /> : <ItemList products={products} />}
+                {<> {loading ? <h1>Cargando...</h1> : < ItemList products={products} /> } </>
+                }
             </>
 
         </>
@@ -57,6 +47,19 @@ export const ItemListContainer = ({ greeting, mensaje }) => {
     );
 };
 
+export default ItemListContainer
+/* /* <h4 className='msj'>{mensaje}</h4> */ 
+
+/* <>{loading ? <h1>Cargando...</h1> : <ItemList products={products} />} </> */
+
+/* {loading ? 
+                    <ClockLoader
+                    color="#36d7b7"
+                    cssOverride={{}}
+                    loading
+                    size={75}
+                    speedMultiplier={2}
+                    /> : <ItemList products={products} />} */
 
 /* <div className='oferta'>
                 <h3>Ver ofertas del día <button className='btn click'>Click Aquí</button></h3>

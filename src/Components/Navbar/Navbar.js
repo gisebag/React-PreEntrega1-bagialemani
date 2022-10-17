@@ -2,7 +2,7 @@ import React from 'react'
 import './Navbar.css'
 import logo from '../Assets/logo.png'
 import { CartWidget } from '../CartWidget/CartWidget';
-import { Link as LinkRRD, NavLink } from "react-router-dom";
+import { Link as LinkRRD } from "react-router-dom";
 
 const Navbar = () => {
 
@@ -13,7 +13,6 @@ const Navbar = () => {
         { nombre: "Men's Clothing", id: 2, ruta: "/categoria/men's clothing" },
         { nombre: "Women's Clothing", id: 3, ruta: "/categoria/women's clothing" },
         
-    
 ];
 
     return (
@@ -23,25 +22,28 @@ const Navbar = () => {
                 <img src={logo} alt="tienda online" />
             </LinkRRD>
             
-            <nav>
+            {/* <nav>
                 {categorias.map((categoria)=>{
                         return (                           
                             
                             <ul><li>
                                 < NavLink key={categoria.id} to={categoria.ruta}>{categoria.nombre}</ NavLink>
                             </li></ul>
-                            
                             );
                     })
                 }
+            </nav> */}
+
+            <nav>
+                {categorias.map((categoria) => {
+                    return <LinkRRD key={categoria.id} to={categoria.ruta}>{categoria.nombre}</LinkRRD>
+                })}
             </nav>
+
             <LinkRRD to="/cart">
                 <CartWidget />
             </LinkRRD> 
-            
-            
         </header>
-    
     </>
     )
 }
