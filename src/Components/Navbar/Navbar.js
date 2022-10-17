@@ -6,13 +6,13 @@ import { Link as LinkRRD, NavLink } from "react-router-dom";
 
 const Navbar = () => {
 
-
     const categorias = [
-        { nombre: "electronics", id: 0, ruta: "/categoria/electronics" },
-        { nombre: "jewelery", id: 1, ruta: "/categoria/jewelery" },
-        { nombre: "men's clothing", id: 2, ruta: "/categoria/men's clothing" },
-        { nombre: "women's clothing", id: 3, ruta: "/categoria/women's clothing" },
-        { nombre: "ver todo", id: 4, ruta: "/categoria/all" },
+        { nombre: "Ver todo", id: 4, ruta: "/categoria/all" },
+        { nombre: "Electronics", id: 0, ruta: "/categoria/electronics" },
+        { nombre: "Jewelery", id: 1, ruta: "/categoria/jewelery" },
+        { nombre: "Men's Clothing", id: 2, ruta: "/categoria/men's clothing" },
+        { nombre: "Women's Clothing", id: 3, ruta: "/categoria/women's clothing" },
+        
     
 ];
 

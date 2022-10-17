@@ -33,18 +33,23 @@ export const ItemListContainer = ({ greeting, mensaje }) => {
         
     }, [id]);
 
+    console.log(useEffect);
 
     return (
         <>
-            {/* <div className='oferta'>
-                <h3>Ver ofertas del día <button className='btn click'>Click Aquí</button></h3>
-            </div> */}
+            
 
             <h3>{greeting}</h3>
             <h4 className='msj'>{mensaje}</h4>
             <>
                 {loading ? 
-                    <ClockLoader/> : <ItemList products={products} />}
+                    <ClockLoader
+                    color="#36d7b7"
+                    cssOverride={{}}
+                    loading
+                    size={75}
+                    speedMultiplier={2}
+                    /> : <ItemList products={products} />}
             </>
 
         </>
@@ -52,6 +57,10 @@ export const ItemListContainer = ({ greeting, mensaje }) => {
     );
 };
 
+
+/* <div className='oferta'>
+                <h3>Ver ofertas del día <button className='btn click'>Click Aquí</button></h3>
+            </div> */
 
 //esto estaba debajo del h4
 /* <ItemCount stock={10} initial={1} onAdd={onAdd}/>
