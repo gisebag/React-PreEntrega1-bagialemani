@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
+import './ItemListContainer.css'
 import ItemList from '../ItemList/ItemList';
-/* import ClockLoader from "react-spinners/ClockLoader"; */
+import ClockLoader from "react-spinners/ClockLoader";
 import { useParams } from "react-router-dom";
 
 const ItemListContainer = ({ greeting }) => {
@@ -17,37 +18,53 @@ const ItemListContainer = ({ greeting }) => {
 
     useEffect(() => {
             
-            const getProducts = async () => {
-                try {
-                    const res = await fetch(id ? URL_CATEGORIA : URL_BASE)             //id ? URL_CATEGORIA : URL_BASE
-                    const data = await res.json();
-                    setProducts(data);
-                } catch {
-                    console.log("error");
-                } finally {
-                    setLoading(false);
-                }
-            };
-            getProducts();
+            setTimeout(() => {
+                const getProducts = async () => {
+                    try {
+                        const res = await fetch(id ? URL_CATEGORIA : URL_BASE)             //id ? URL_CATEGORIA : URL_BASE
+                        const data = await res.json();
+                        setProducts(data);
+                    } catch {
+                        console.log("error");
+                    } finally {
+                        setLoading(false);
+                    }
+                };
+                getProducts();
+            }, 1000);
             
-        
     }, [id]);
 
-    console.log(useEffect);
+    /* console.log(useEffect); */
+
     return (
         <>
+            <div className='body'>
             <h3>{greeting}</h3>
             <>
-                {<> {loading ? <h1>Cargando...</h1> : < ItemList products={products} /> } </>
-                }
+                {<>{loading ? 
+                    <ClockLoader
+                    color="#ff8809"
+                    cssOverride={{}}
+                    loading
+                    size={75}
+                    speedMultiplier={2} /> : <ItemList products={products} />} </>
+                    
+                    }
             </>
-
+            </div>
         </>
 
     );
 };
 
 export default ItemListContainer
+
+
+
+
+{/* {<> {loading ? <h1>Cargando...</h1> : < ItemList products={products} /> } </>
+                } */}
 /* /* <h4 className='msj'>{mensaje}</h4> */ 
 
 /* <>{loading ? <h1>Cargando...</h1> : <ItemList products={products} />} </> */
@@ -75,12 +92,6 @@ export default ItemListContainer
             } 
             */
 
-/*  const productos = [ //array de products
-{nombre:"manzana", id:0, categoria:"fruta", stock:10, precioxkilo: 500},
-{nombre:"peras", id:1, categoria:"fruta", stock:15, precioxkilo: 1000},
-{nombre:"zanahoria", id:2, categoria:"verdura", stock:5, precioxkilo: 1500},
-{nombre:"batata", id:3, categoria:"verdura", stock:20, precioxkilo: 750},
-]; */
 
 /* //promesas clase 6 (normalmente las promesas se usan en backend)
 const obtenerProductos = new Promise((resolve, reject)=>{

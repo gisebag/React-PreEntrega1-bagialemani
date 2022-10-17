@@ -1,27 +1,44 @@
 import React from "react";
-/* import Card from "@mui/material/Card"; */
+import { Link as LinkRRD } from "react-router-dom";
 import './Item.css'
-/* import { Link as LinkRRD } from "react-router-dom";
-import {
-    CardContent,
-    CardMedia,
-    Typography,
-    Button,
-    CardActionArea,
-    CardActions,
-} from "@mui/material"; */
 
 const Item = ({ product }) => {
+
+    const URL = `/producto/${product.id}`
     return (
-        <div>
-            <h1>{product.title}</h1>
+        <>
+        <div className='producto'>
+            
+            <img className='fotoProducto' src={product.image} alt={product.title} />            
+            <p className='tituloProducto'> {product.title}</p>
+            <div className='precio'>
+                <p>{product.price}</p>
+                <div></div>
+            </div> 
+            <LinkRRD to={URL}>
+
+                <button className="detalle">
+                    <span className="text">Ver detalle</span>
+                </button>
+
+            </LinkRRD>
+            
         </div>
-    );
+        </>
+    )
 };
 
 
 
 export default Item;
+
+
+
+
+
+
+
+
 
 /* <Card className="cartContainer" >
 <CardActionArea className="cardAction">

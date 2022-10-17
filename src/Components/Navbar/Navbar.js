@@ -2,12 +2,12 @@ import React from 'react'
 import './Navbar.css'
 import logo from '../Assets/logo.png'
 import { CartWidget } from '../CartWidget/CartWidget';
-import { Link as LinkRRD } from "react-router-dom";
+import { Link as LinkRRD, NavLink } from "react-router-dom";
 
 const Navbar = () => {
 
     const categorias = [
-        { nombre: "Ver todo", id: 4, ruta: "/categoria/all" },
+        
         { nombre: "Electronics", id: 0, ruta: "/categoria/electronics" },
         { nombre: "Jewelery", id: 1, ruta: "/categoria/jewelery" },
         { nombre: "Men's Clothing", id: 2, ruta: "/categoria/men's clothing" },
@@ -19,24 +19,12 @@ const Navbar = () => {
         <>
         <header>
             <LinkRRD className='link'  to="/">
-                <img src={logo} alt="tienda online" />
-            </LinkRRD>
-            
-            {/* <nav>
-                {categorias.map((categoria)=>{
-                        return (                           
-                            
-                            <ul><li>
-                                < NavLink key={categoria.id} to={categoria.ruta}>{categoria.nombre}</ NavLink>
-                            </li></ul>
-                            );
-                    })
-                }
-            </nav> */}
+                <img className='linkImg' src={logo} alt="tienda online" />
+            </LinkRRD>      
 
             <nav>
                 {categorias.map((categoria) => {
-                    return <LinkRRD key={categoria.id} to={categoria.ruta}>{categoria.nombre}</LinkRRD>
+                    return <NavLink className="navLink" key={categoria.id} to={categoria.ruta}><ul><li>{categoria.nombre}</li></ul></NavLink>
                 })}
             </nav>
 

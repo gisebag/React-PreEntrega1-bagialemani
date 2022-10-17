@@ -3,12 +3,21 @@
     margin: 0;
     box-sizing: 0;
 }
+
+.body{
+    background-color: #EAEDED;
+    
+}
+
 h3{
-    color:rgb(39, 39, 197);
+    color:#fff;
+    background-color: rgb(31, 31, 31);
+    padding: 10px 0;
+    text-align: center;
 }
 
 .click{
-    background-color: orange;
+    background-color: rgb(254, 137, 41);
 }
 
 .click:hover{

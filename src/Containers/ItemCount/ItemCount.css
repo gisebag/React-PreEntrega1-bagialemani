@@ -1,0 +1,30 @@
+/* *{
+    padding: 0;
+    margin: 0;
+    box-sizing: 0;
+    
+}
+
+.contadorProductos{
+    width: 10rem;
+    display: flex;
+    flex-direction: column;
+    
+}
+.contador{
+    display: flex;
+    justify-content: space-between;
+    height: 1.5rem;
+    margin-bottom: 4px;
+}
+.contador p{
+    margin: 0;
+}
+.contador button{
+    display: flex;
+    align-items: center;
+    padding: 0 0.5rem;
+}
+button{
+    border: solid 1px black;
+} */

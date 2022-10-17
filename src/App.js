@@ -19,7 +19,6 @@ const App = () => {
           <Route path="/categoria/:id" element={<ItemListContainer greeting={mensaje} />}/>
           <Route path="/producto/:id" element={<ItemDetailContainer />}/>
           <Route path="/cart" element={<Cart />}/>
-          {/* <Route path="*" element={<ItemListContainer />}/> */}
       </Routes>
       </BrowserRouter>
     </>    
@@ -28,7 +27,3 @@ const App = () => {
 //los componentesBoton y componenteTitulo son Props Childrens
 
 export default App
-
-
-/* {show ? <ItemCount /> : <h4>No encontrado...</h4>}
-      <button onClick={alternar}>Alternar</button> */
