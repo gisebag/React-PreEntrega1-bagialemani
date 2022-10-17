@@ -1,40 +1,44 @@
-import React, {useState} from 'react';
-import './ItemCount.css'
+import React, { useState } from "react";
 
-export const ItemCount = ({ stock, initial, onAdd }) => {
-    const [count, setCount]= useState(initial);
-    
-    const restar = ()=>{
+const ItemCount = ({ stock, initial, onAdd }) => {
+    const [count, setCount] = useState(initial);
+
+    const subtract = () => {
         if (count > 1) {
-            setCount (count - 1);
+            setCount(count - 1);
         }
-    }
-    const sumar = ()=>{
-        if(count < stock){
-            setCount (count + 1);
+    };
+
+    const add = () => {
+        if (count < stock) {
+            setCount(count + 1);
         }
-    }
+    };
 
-    const carrito = ()=>{
-        onAdd(count)
-    }
-
-    const compra = ()=>{
-        console.log(`El Usuario compra ${count} productos`);
-    }
 
     return (
-        <div className='cards'>
-            <button className='btn btn-primary btn1' onClick={restar}>-</button>
-            <p className='contador'>{count}</p>
-            <button className='btn btn-success btn1' onClick={sumar}>+</button>
-                
-                <button disabled={stock === 0} className='btn btn-outline-danger carrito' onClick={carrito}>
-                    <span>{stock === 0 ? "Sin Stock" : "Agregar al Carrito"}</span>
-                </button>
-                <button disabled={stock === 0} className='btn btn-outline-warning comprar' onClick={compra}>Comprar</button>
+        <div>
+            <button onClick={subtract}>-</button>
+            <h2>{count}</h2>
+            <button onClick={add}>+</button>
+            <button disabled={stock === 0} onClick={() => onAdd(count)}>
+                <span>{stock === 0 ? 'No tenemos stock' : 'Agrega al carrito'}</span>
+            </button>
         </div>
     );
 };
 
-export default ItemCount
+export default ItemCount;
+
+
+//setTimeout(()=>{
+            //console.log("pasan los segundos");
+        //}, 2000);
+
+        //const intervalo = setInterval(() => {
+         //   console.log("ping");
+        //}, 1000);
+
+/* return(()=>{
+    clearInterval(intervalo);
+}); */

@@ -6,10 +6,7 @@ import App from './App'; //busca por fuera
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  
-  </React.StrictMode>
+  <App />
 );
 
 

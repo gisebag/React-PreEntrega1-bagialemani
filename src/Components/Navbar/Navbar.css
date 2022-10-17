@@ -39,7 +39,7 @@ li:hover{
     font-weight: bolder;
 }
 
-a{
+.link{
     margin: 20px;
     text-decoration: none;
     color: rgb(39, 39, 197);
@@ -50,10 +50,7 @@ a{
     
     display: flex;
 }
-p{
-    color: rgb(39, 39, 197);
-    font-weight: bold;
-}
+
 
 .shop{
     margin: 0px 60px;;

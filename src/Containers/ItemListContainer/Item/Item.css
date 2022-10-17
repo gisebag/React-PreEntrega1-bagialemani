@@ -1,0 +1,22 @@
+.cartContainer {
+        width:  30%;
+        height: 10%;
+        flex-Direction: column;
+        justify-Content: center;
+        align-Items: center;
+        margin: 20px;
+        padding: 20px 30px;
+        background-color: rgb(253, 250, 235);
+}
+
+.title {
+        text-Overflow: ellipsis;
+        overflow: hidden;
+        height: 100px;
+}
+
+.cardMedia{
+        height: 300px;
+        padding: 10px;
+        
+}
