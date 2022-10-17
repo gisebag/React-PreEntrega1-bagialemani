@@ -4,7 +4,7 @@ import './Item.css'
 
 const Item = ({ product }) => {
 
-    const URL = `/producto/${product.id}`
+    const URL = `/producto/ + ${product.id}`
     return (
         <>
         <div className='producto'>
@@ -15,12 +15,11 @@ const Item = ({ product }) => {
                 <p>{product.price}</p>
                 <div></div>
             </div> 
-            <LinkRRD to={URL}>
 
+            <LinkRRD to={URL}>
                 <button className="detalle">
                     <span className="text">Ver detalle</span>
                 </button>
-
             </LinkRRD>
             
         </div>

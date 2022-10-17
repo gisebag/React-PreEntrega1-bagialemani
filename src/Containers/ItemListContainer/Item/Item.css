@@ -8,13 +8,13 @@
         width: 20rem;
         height: 30rem;
         margin: 1.5rem;
-        /* justify-content: space-between; */
+        
         align-items: center;
         align-content: center;
-        /* border: solid 1px #232f3e; */
+        
         border-radius: 4px;
         background-color: #fff;
-        box-shadow: -3px 7px 25px 0px rgba(0, 0, 0, 0.81);
+        box-shadow: -3px 7px 25px 0px rgba(0, 0, 0, 0.5);
 }
 
 .fotoProducto {
