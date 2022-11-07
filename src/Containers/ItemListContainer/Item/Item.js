@@ -2,6 +2,7 @@ import React from "react";
 import { Link as LinkRRD } from "react-router-dom";
 import './Item.css'
 
+
 const Item = ({ product }) => {
 
     const URL = `/producto/ + ${product.id}`

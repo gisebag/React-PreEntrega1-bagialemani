@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './ItemListContainer.css'
 import ItemList from '../ItemList/ItemList';
-import ClockLoader from "react-spinners/ClockLoader";
+import BeatLoader from "react-spinners/BeatLoader";
 import { useParams } from "react-router-dom";
 
 const ItemListContainer = ({ greeting }) => {
@@ -33,7 +33,7 @@ const ItemListContainer = ({ greeting }) => {
                 getProducts();
             }, 1000);
             
-    }, [id]);
+    }, [id, URL_BASE, URL_CATEGORIA]);
 
     /* console.log(useEffect); */
 
@@ -43,7 +43,7 @@ const ItemListContainer = ({ greeting }) => {
             <h3>{greeting}</h3>
             <>
                 {<>{loading ? 
-                    <ClockLoader
+                    <BeatLoader
                     color="#ff8809"
                     cssOverride={{}}
                     loading
@@ -63,8 +63,8 @@ export default ItemListContainer
 
 
 
-{/* {<> {loading ? <h1>Cargando...</h1> : < ItemList products={products} /> } </>
-                } */}
+/* {<> {loading ? <h1>Cargando...</h1> : < ItemList products={products} /> } </>
+                } */
 /* /* <h4 className='msj'>{mensaje}</h4> */ 
 
 /* <>{loading ? <h1>Cargando...</h1> : <ItemList products={products} />} </> */

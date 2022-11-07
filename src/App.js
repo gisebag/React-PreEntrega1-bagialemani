@@ -5,23 +5,27 @@ import  ItemListContainer  from "./Containers/ItemListContainer/ItemListContaine
 import { ItemDetailContainer } from "./Containers/ItemDetailContainer/ItemDetailContainer";
 import { Cart } from "./Containers/CartView/Cart";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { CustomProvider } from "./Containers/Context/CartContext"; 
+
 
 const App = () => {
-   //creamos una props
+   //creamos una props para pasar a los componentes hijos
   const mensaje= "Bienvenid@ a Amazing"
 
   return (  //creamos componentes
-    <>
-      <BrowserRouter> 
-      <Navbar />
-      <Routes>
-          <Route path="/" element={<ItemListContainer greeting={mensaje} />}/>
-          <Route path="/categoria/:id" element={<ItemListContainer greeting={mensaje} />}/>
-          <Route path="/producto/:id" element={<ItemDetailContainer />}/>
-          <Route path="/cart" element={<Cart />}/>
-      </Routes>
-      </BrowserRouter>
-    </>    
+    
+      <CustomProvider>
+        <BrowserRouter> 
+        <Navbar />
+        <Routes>
+            <Route path="/" element={<ItemListContainer greeting={mensaje} />}/>
+            <Route path="/categoria/:id" element={<ItemListContainer greeting={mensaje} />}/>
+            <Route path="/producto/:id" element={<ItemDetailContainer />}/>
+            <Route path="/cart" element={<Cart />}/>
+        </Routes>
+        </BrowserRouter>
+      </CustomProvider>
+      
   );
 };
 //los componentesBoton y componenteTitulo son Props Childrens
