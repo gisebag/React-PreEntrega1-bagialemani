@@ -25,9 +25,9 @@ export const CustomProvider = ({children}) => {//patron provider
 
 
     const addItem = (item, cantidad) =>{
-        console.log(item);
-        console.log("lo seleccionado se cargara al carrito");
-    }
+        IsInCart(item.id);
+        /* setCart([...cart,{...item,cantidad}]) */
+    }; 
 
     const deleteItem = (id) =>{
         const filtrado = cart.filter(item => item.id !== id);

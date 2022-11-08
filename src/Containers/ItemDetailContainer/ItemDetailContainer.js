@@ -15,9 +15,7 @@ export const ItemDetailContainer = ({ greeting }) => {
                 const res = await fetch(`https://fakestoreapi.com/products/${id}`); // o sino poner + id pero con comillas
                 const data = await res.json();
                 setProduct(data);
-            } catch {
-                console.log("Tira error");
-            } finally {
+            }  finally {
                 setLoading(false);
             }
         };
