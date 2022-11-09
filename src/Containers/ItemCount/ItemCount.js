@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 /* import './itemCount.css'; */
 
-const ItemCount = ({stock, onAdd, inicial}) => {
+const ItemCount = ({stock, onAdd, inicial}) => {  // estos son los props
     const [count, setCount] = useState(inicial);
 
     const agregarContador = ()=>{

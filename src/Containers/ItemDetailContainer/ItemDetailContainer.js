@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ItemDetail from "../ItemDetail/ItemDetail";
-/* import "./ItemDetailContainer.css" */
+import { getDoc, collection, doc } from "firebase/firestore";
+import { db } from "../../Firebase/firebase";
+import "./ItemDetailContainer.css"
 
 export const ItemDetailContainer = ({ greeting }) => {
     const [product, setProduct] = useState([]);
@@ -10,18 +12,35 @@ export const ItemDetailContainer = ({ greeting }) => {
     const { id } = useParams();
 
     useEffect(() => {
-        const getProducts = async () => {
+        const productCollection = collection(db, 'productos');
+        const refDoc = doc(productCollection, id);
+
+        getDoc(refDoc)
+        .then((result) =>{
+            setProduct({
+                id: result.id,
+                ...result.data(),
+            });
+        })
+        .catch((error)=>{
+            console.log(error);
+        })
+        .finally(setLoading(false));
+
+
+        /* const getProducts = async () => {
             try {
                 const res = await fetch(`https://fakestoreapi.com/products/${id}`); // o sino poner + id pero con comillas
                 const data = await res.json();
                 setProduct(data);
-            }  finally {
+            } catch {
+                console.log("Tira error");
+            } finally {
                 setLoading(false);
             }
         };
-        setTimeout(() => {
             getProducts();
-        }, 2000);
+         */
     }, [id]);
 
     return (
