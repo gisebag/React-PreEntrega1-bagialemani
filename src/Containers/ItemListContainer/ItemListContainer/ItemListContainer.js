@@ -1,3 +1,4 @@
+//sirve para ver todos los productos ó por categoría
 import React, { useEffect, useState } from 'react'
 import './ItemListContainer.css'
 import ItemList from '../ItemList/ItemList';

@@ -1,3 +1,4 @@
+//este sirve para contar los productos agregados.
 import React, { useState } from "react";
 /* import './itemCount.css'; */
 
