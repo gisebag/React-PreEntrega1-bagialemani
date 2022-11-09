@@ -3,6 +3,8 @@ import './ItemListContainer.css'
 import ItemList from '../ItemList/ItemList';
 import BeatLoader from "react-spinners/BeatLoader";
 import { useParams } from "react-router-dom";
+import { getDocs, collection, query, where } from "firebase/firestore";
+import { db } from "../../../Firebase/firebase";
 
 const ItemListContainer = ({ greeting }) => {
 
@@ -11,31 +13,33 @@ const ItemListContainer = ({ greeting }) => {
 
     const { id } = useParams();
     
-
     //armamos las rutas para poder identif. por categorias
     const URL_BASE = 'https://fakestoreapi.com/products';
     const URL_CATEGORIA = `${URL_BASE}/category/${id}`
 
-    useEffect(() => {
-            
-            setTimeout(() => {
-                const getProducts = async () => {
-                    try {
-                        const res = await fetch(id ? URL_CATEGORIA : URL_BASE)             //id ? URL_CATEGORIA : URL_BASE
-                        const data = await res.json();
-                        setProducts(data);
-                    } catch {
-                        console.log("error");
-                    } finally {
-                        setLoading(false);
-                    }
-                };
-                getProducts();
-            }, 1000);
-            
-    }, [id, URL_BASE, URL_CATEGORIA]);
+    const productCollection = collection(db, 'productos');
+    const qry = id ? query(productCollection, where('category', '==', id)) : productCollection;
 
-    /* console.log(useEffect); */
+
+    useEffect(() => {
+        getDocs(qry)
+        .then((result) => {
+            const listProduct =  result.docs.map((item) =>{
+                return {
+                    ...item.data(),
+                    id: item.id,
+            };
+        });
+        setProducts(listProduct);
+        })
+        .catch((error)=>{
+            console.log(error);
+        })
+        .finally( setLoading (false));
+
+
+    }, [id, URL_CATEGORIA]);
+
 
     return (
         <>
@@ -114,3 +118,21 @@ const obtenerProductos = new Promise((resolve, reject)=>{
             console.log(error);
         })
         .finally(setLoading(false)); */
+
+
+
+
+        /* setTimeout(() => {
+                const getProducts = async () => {
+                    try {
+                        const res = await fetch(id ? URL_CATEGORIA : URL_BASE)             //id ? URL_CATEGORIA : URL_BASE
+                        const data = await res.json();
+                        setProducts(data);
+                    } catch {
+                        console.log("error");
+                    } finally {
+                        setLoading(false);
+                    }
+                };
+                getProducts();
+            }, 1000); */

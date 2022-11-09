@@ -38,6 +38,34 @@ const ItemDetail = ({ product }) => {
 }
 
 export default ItemDetail;
+    /* const onAdd = (count) => {
+    addItem(product, count); //esto agrega cantidad
+    console.log("se agrega" + count + "unidades");
+    setShowItemCount(false);
+};
+
+    return (
+        <div className='detailContainer' key={product.id}>
+            <h1 className='titulo'>{product.title}</h1>
+            <img src={product.image} alt={product.title} className='imagen'/>
+            <p className='descripcion'>{product.description}</p>
+                <div className='precio'>
+                    <span>${product.price}</span>                            
+                </div>
+            {showItemCount ? (
+                <ItemCount className="prueba" inicial={1} stock={product.stock} onAdd={onAdd} />
+                ) : (
+                    <LinkRRD to={'/cart'}>
+                        <button className="btn btn-success">Finalizar Compra</button>
+                    </LinkRRD>
+                )}
+            
+        </div>
+    );
+ 
+}
+
+export default ItemDetail; */
 
 /* const ItemDetail = ({Product}) => {
 const [showItemCount, setShowItemCount] = useState(true);

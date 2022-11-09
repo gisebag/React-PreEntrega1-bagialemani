@@ -13,20 +13,20 @@ export const CustomProvider = ({children}) => {//patron provider
 
 
     useEffect(() => {
-        const cantidad = 0;
+        /* const cantidad = 0;
         const totalCant = 0;
         cart.forEach(item =>{
             cantidad += item.cantidad;
             totalCant += (item.price * item.cantidad)
-        } );
-        setQty(cantidad);
-        setTotal (totalCant);
-    }, [cart]);
+        } ); */
+        setQty(cart.reduce ((total, item) => total + item.cantidad, 0));
+        setTotal(cart.reduce((total, item) => total + (item.cantidad * item.price), 0))
+    }, [])
 
 
     const addItem = (item, cantidad) =>{
         IsInCart(item.id);
-        /* setCart([...cart,{...item,cantidad}]) */
+        setCart([...cart,{...item,cantidad}])
     }; 
 
     const deleteItem = (id) =>{
